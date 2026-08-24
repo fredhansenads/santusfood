@@ -498,3 +498,60 @@ git commit -m "chore: inicia projeto Django"
 ```
 
 Depois do primeiro commit, o próximo assunto será a análise dos demais blocos de `settings.py`, seguida pelas migrações iniciais do Django.
+
+## 19. Aplicação accounts e usuário personalizado
+
+A aplicação de autenticação foi criada com:
+
+```powershell
+python manage.py startapp accounts
+```
+
+O modelo personalizado utiliza a implementação completa do Django:
+
+```python
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    pass
+```
+
+Mesmo sem campos adicionais, essa classe permite evoluir o usuário sem trocar o modelo central depois que o banco estiver em uso.
+
+A aplicação foi registrada em `INSTALLED_APPS`:
+
+```python
+"accounts.apps.AccountsConfig",
+```
+
+E o modelo principal de autenticação foi definido por:
+
+```python
+AUTH_USER_MODEL = "accounts.User"
+```
+
+A migração inicial foi gerada com:
+
+```powershell
+python manage.py makemigrations accounts
+```
+
+Antes de alterar o banco, foram executados:
+
+```powershell
+python manage.py check
+python manage.py makemigrations --check --dry-run
+python manage.py test accounts
+python manage.py migrate --plan
+```
+
+O usuário personalizado também foi registrado no Django Admin usando `UserAdmin`, preservando os formulários, grupos e permissões do sistema de autenticação.
+
+As migrações foram aplicadas ao PostgreSQL com:
+
+```powershell
+python manage.py migrate
+```
+
+Foram criadas as estruturas de `accounts`, `admin`, `auth`, `contenttypes` e `sessions`. Todas as operações terminaram com `OK`.

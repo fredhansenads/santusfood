@@ -2,14 +2,14 @@
 
 Este arquivo é a fonte de acompanhamento do projeto. Ele registra o estado atual, as decisões já tomadas, o próximo passo autorizado e o trabalho que ainda falta. Deve ser atualizado ao final de cada etapa relevante.
 
-Última atualização: 14/08/2026
+Última atualização: 24/08/2026
 
 ## Forma de trabalho
 
 - O projeto tem finalidade de aprendizado.
-- O aluno cria os arquivos, escreve o código e executa os comandos.
-- Cada passo deve ser apresentado separadamente e explicado antes da execução.
-- O assistente só altera arquivos quando houver pedido explícito.
+- O assistente pode executar comandos e alterar arquivos quando houver autorização explícita do usuário.
+- Alterações executadas pelo assistente devem ser revisadas, validadas e explicadas.
+- Antes de qualquer alteração, o assistente deve consultar este arquivo.
 - Senhas, chaves e conteúdo real do `.env` nunca devem ser exibidos ou versionados.
 - Antes de cada commit, revisar `git status` e o conteúdo preparado.
 
@@ -33,7 +33,7 @@ Este arquivo é a fonte de acompanhamento do projeto. Ele registra o estado atua
 - [x] `santusfood_user` definido como proprietário do banco.
 - [x] Codificação `UTF8` confirmada.
 - [x] Conexão do usuário da aplicação testada.
-- [ ] Migrações iniciais executadas.
+- [x] Migrações iniciais executadas no PostgreSQL.
 
 ### Dependências
 
@@ -53,9 +53,12 @@ Este arquivo é a fonte de acompanhamento do projeto. Ele registra o estado atua
 - [x] PostgreSQL configurado em `DATABASES`.
 - [x] `python manage.py check` executado sem problemas.
 - [ ] Demais blocos de `settings.py` estudados.
-- [ ] Aplicação `accounts` criada.
-- [ ] Modelo personalizado de usuário criado.
-- [ ] `AUTH_USER_MODEL` configurado.
+- [x] Aplicação `accounts` criada.
+- [x] Modelo personalizado `accounts.User` criado com `AbstractUser`.
+- [x] `AUTH_USER_MODEL` configurado.
+- [x] Usuário personalizado registrado no Django Admin.
+- [x] Teste da configuração do usuário personalizado criado e aprovado.
+- [x] Servidor de desenvolvimento iniciado e `/admin/login/` validado com HTTP 200.
 
 ### Segurança e configuração local
 
@@ -79,24 +82,14 @@ Este arquivo é a fonte de acompanhamento do projeto. Ele registra o estado atua
 
 ## Próximo passo
 
-Criar a aplicação `accounts` antes da primeira migração:
+Criar um superusuário administrativo e testar o acesso ao Django Admin. A criação será feita somente depois que o usuário definir as credenciais, sem registrá-las em arquivos ou no Git.
 
-```powershell
-python manage.py startapp accounts
-```
+Depois disso, a sequência imediata será:
 
-Motivo: o projeto utilizará um modelo personalizado de usuário. Defini-lo antes das migrações iniciais evita alterações complexas nas relações de autenticação e no banco de dados.
-
-Depois da criação, a sequência imediata será:
-
-1. Examinar cada arquivo gerado em `accounts/`.
-2. Implementar o modelo personalizado com base em `AbstractUser`.
-3. Registrar `accounts` em `INSTALLED_APPS`.
-4. Configurar `AUTH_USER_MODEL`.
-5. Executar `python manage.py check`.
-6. Criar e revisar as migrações.
-7. Aplicar as migrações ao PostgreSQL.
-8. Criar um commit da etapa.
+1. Testar login e visualização de usuários no Django Admin.
+2. Revisar o estado do Git.
+3. Criar um commit da fundação de `accounts`.
+4. Definir os campos e regras de cliente antes de iniciar a Fase 2.
 
 ## Roadmap do MVP
 
@@ -107,8 +100,8 @@ Depois da criação, a sequência imediata será:
 - [x] Criar projeto Django.
 - [x] Configurar variáveis de ambiente.
 - [x] Conectar configurações ao PostgreSQL.
-- [ ] Criar modelo personalizado de usuário.
-- [ ] Executar migrações iniciais.
+- [x] Criar modelo personalizado de usuário.
+- [x] Executar migrações iniciais.
 - [ ] Criar superusuário administrativo.
 - [ ] Testar acesso ao Django Admin.
 
