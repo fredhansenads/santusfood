@@ -59,6 +59,8 @@ Este arquivo é a fonte de acompanhamento do projeto. Ele registra o estado atua
 - [x] Usuário personalizado registrado no Django Admin.
 - [x] Teste da configuração do usuário personalizado criado e aprovado.
 - [x] Servidor de desenvolvimento iniciado e `/admin/login/` validado com HTTP 200.
+- [x] Superusuário administrativo criado.
+- [x] Login e visualização de usuários no Django Admin validados.
 
 ### Segurança e configuração local
 
@@ -77,19 +79,20 @@ Este arquivo é a fonte de acompanhamento do projeto. Ele registra o estado atua
 - [x] Árvore de trabalho confirmada como limpa após o commit.
 - [x] `GUIA_DE_ESTUDO.md` criado e incluído no primeiro commit.
 - [x] `STATUS_DO_PROJETO.md` criado e aprovado.
+- [x] Fundação de `accounts` salva no commit `3c275a7`.
 - [ ] Estratégia de branches definida, se necessária.
 - [ ] Repositório remoto configurado, se desejado.
 
 ## Próximo passo
 
-Criar um superusuário administrativo e testar o acesso ao Django Admin. A criação será feita somente depois que o usuário definir as credenciais, sem registrá-las em arquivos ou no Git.
+Iniciar a Fase 2 definindo os dados e as regras de cliente antes de criar novos modelos.
 
-Depois disso, a sequência imediata será:
+A sequência imediata será:
 
-1. Testar login e visualização de usuários no Django Admin.
-2. Revisar o estado do Git.
-3. Criar um commit da fundação de `accounts`.
-4. Definir os campos e regras de cliente antes de iniciar a Fase 2.
+1. Decidir quais dados pertencem ao usuário e quais pertencem ao perfil do cliente.
+2. Modelar telefone e endereços de entrega.
+3. Definir validações de telefone, CEP e campos obrigatórios.
+4. Criar as migrações e testes correspondentes.
 
 ## Roadmap do MVP
 
@@ -102,8 +105,8 @@ Depois disso, a sequência imediata será:
 - [x] Conectar configurações ao PostgreSQL.
 - [x] Criar modelo personalizado de usuário.
 - [x] Executar migrações iniciais.
-- [ ] Criar superusuário administrativo.
-- [ ] Testar acesso ao Django Admin.
+- [x] Criar superusuário administrativo.
+- [x] Testar acesso ao Django Admin.
 
 ### Fase 2 — Contas e clientes
 

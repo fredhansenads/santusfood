@@ -555,3 +555,19 @@ python manage.py migrate
 ```
 
 Foram criadas as estruturas de `accounts`, `admin`, `auth`, `contenttypes` e `sessions`. Todas as operações terminaram com `OK`.
+
+### Superusuário e validação do Admin
+
+O superusuário foi criado de forma interativa para que a senha não aparecesse na conversa nem em arquivos:
+
+```powershell
+python manage.py createsuperuser
+```
+
+Depois da criação, o login foi testado em:
+
+```text
+http://127.0.0.1:8000/admin/
+```
+
+O painel exibiu o modelo personalizado `accounts.User`, confirmando que o registro com `UserAdmin` e a autenticação estavam funcionando.
