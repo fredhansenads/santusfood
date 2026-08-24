@@ -80,8 +80,8 @@ Este arquivo é a fonte de acompanhamento do projeto. Ele registra o estado atua
 - [x] `GUIA_DE_ESTUDO.md` criado e incluído no primeiro commit.
 - [x] `STATUS_DO_PROJETO.md` criado e aprovado.
 - [x] Fundação de `accounts` salva no commit `3c275a7`.
-- [ ] Estratégia de branches definida, se necessária.
-- [ ] Repositório remoto configurado, se desejado.
+- [x] Branch `master` publicada e configurada para acompanhar `origin/master`.
+- [x] Repositório remoto configurado: `https://github.com/fredhansenads/santusfood.git`.
 
 ## Próximo passo
 
